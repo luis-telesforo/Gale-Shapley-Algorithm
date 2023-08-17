@@ -12,7 +12,7 @@ public class Entity {
     /**
      * The ordered list of preferences. It stores entities' ID, not entities.
      */
-    private ArrayList<Integer> preferences;
+    private final ArrayList<Integer> preferences;
 
     /**
      * Constructs an entity with the given ID and list of preferences.
