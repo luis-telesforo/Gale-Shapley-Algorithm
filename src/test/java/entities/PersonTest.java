@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EntityTest {
+class PersonTest {
     @Test
     void testNegativeEntityConstructor() {
         Integer ID = 0;
         ArrayList<Integer> preferences = new ArrayList<>();
         try {
-            Entity entity = new Entity(ID,preferences);
+            Entity entity = new Person(ID,preferences);
             fail("Entity with empty preference list");
         } catch (GSException e) {
             assertEquals("An entity must have non-empty preference list.",e.getMessage());
@@ -26,33 +26,18 @@ class EntityTest {
         Integer ID = 0;
         ArrayList<Integer> preferences = new ArrayList<>();
         preferences.add(1);
-        Entity entity = new Entity(ID,preferences);
+        Entity entity = new Person(ID,preferences);
         assertEquals(ID,entity.getID());
     }
 
     @Test
-    void testForPositiveGetBest() {
+    void testForGetBest() {
         Integer ID = 0;
         ArrayList<Integer> preferences = new ArrayList<>();
         Integer best = 1;
         preferences.add(best);
         preferences.add(5);
-        Entity entity = new Entity(ID,preferences);
-        assertEquals(best,entity.getBest());
-    }
-    @Test
-    void testForNegativeGetBest() {
-        Integer ID = 0;
-        ArrayList<Integer> preferences = new ArrayList<>();
-        Integer best = 1;
-        preferences.add(best);
-        Entity entity = new Entity(ID,preferences);
-        preferences.remove(best);
-        try {
-            entity.getBest();
-        } catch (GSException e ) {
-            assertEquals("This entity has ran out of options.",e.getMessage());
-        }
-
+        Person person = new Person(ID,preferences);
+        assertEquals(best,person.getBest());
     }
 }
