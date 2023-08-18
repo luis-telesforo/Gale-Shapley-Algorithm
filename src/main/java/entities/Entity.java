@@ -31,13 +31,6 @@ public abstract class Entity {
             throw new GSException("An entity must have non-empty preference list.");
         }
     }
-    /**
-     * To be considered as an option this entity must share its ID.
-     * @return the entity's ID
-     */
-    public Integer getID() {
-        return ID;
-    }
 
     /**
      * Entities are able to tell whether they are matched.

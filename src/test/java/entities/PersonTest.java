@@ -27,7 +27,7 @@ class PersonTest {
         ArrayList<Integer> preferences = new ArrayList<>();
         preferences.add(1);
         Entity entity = new Person(ID,preferences);
-        assertEquals(ID,entity.getID());
+        assertEquals(ID,entity.ID);
     }
 
     @Test
