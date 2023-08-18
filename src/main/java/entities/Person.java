@@ -3,8 +3,13 @@ package entities;
 import gsexceptions.GSException;
 
 import java.util.ArrayList;
-
+/**
+ * A person is an entity that can be matched with a single entity.
+ */
 public class Person extends Entity {
+    /**
+     * Initially, a person is unmatched.
+     */
     private boolean isMatched = false;
      /**
      * Constructs an entity with the given ID and list of preferences.
@@ -17,8 +22,8 @@ public class Person extends Entity {
         super(ID, preferences);
     }
     /**
-     * Entities are able to tell whether they are matched.
-     * @return true if the entity cannot accept more pairs.
+     * Persons are able to tell whether they are matched.
+     * @return true if the person is already matched.
      */
     @Override
     public boolean isMatched() {

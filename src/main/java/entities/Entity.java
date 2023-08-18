@@ -4,6 +4,10 @@ import gsexceptions.GSException;
 
 import java.util.ArrayList;
 
+/**
+ * An entity has a list of preferences. It should be able to tell whether it is matched.
+ */
+
 public abstract class Entity {
     /**
      * Each entity has an ID. Two different entities could have the same ID.
