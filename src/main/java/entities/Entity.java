@@ -16,7 +16,7 @@ public abstract class Entity {
     /**
      * The ordered list of preferences. It stores entities' ID, not entities.
      */
-    protected final ArrayList<Integer> preferences;
+    protected ArrayList preferences;
     /**
      * Constructs an entity with the given ID and list of preferences.
      * @param ID The Integer to be set as ID.
@@ -26,7 +26,8 @@ public abstract class Entity {
     public Entity(Integer ID, ArrayList<Integer> preferences) throws GSException {
         if (!preferences.isEmpty()) {
             this.ID = ID;
-            this.preferences = preferences;
+            this.preferences = (ArrayList) preferences.clone();
+
         } else {
             throw new GSException("An entity must have non-empty preference list.");
         }

@@ -9,7 +9,7 @@ public class School extends Entity {
      * The number of positions this school offers.
      */
     private final int maxPositions;
-    private final ArrayList<Integer> currentMatched = new ArrayList<>();
+    public final ArrayList<Integer> currentMatched = new ArrayList<>();
     /**
      * Constructs an entity with the given ID and list of preferences. Additionally, school offers a given number
      * of positions.
@@ -37,22 +37,22 @@ public class School extends Entity {
     }
 
     /**
-     * Given two people, a school can tell which one prefers.
-     * @param person1 First person given for rank comparison.
-     * @param person2 Second person given for rank comparison.
-     * @return true if this school prefers person1 over person2
+     * Given two people, a school can tell which one prefers. The lower the index, the higher the rank.
+     * @param person1 First person's ID given for rank comparison.
+     * @param person2 Second person's ID given for rank comparison.
+     * @return true if this school prefers person1 over person2.
      */
-    public boolean prefers(Entity person1,Entity person2) {
-        int rank1 = preferences.indexOf(person1.ID);
-        int rank2 = preferences.indexOf(person2.ID);
-        return rank1 > rank2;
+    public boolean prefers(Integer person1,Integer person2) {
+        int rank1 = preferences.indexOf(person1);
+        int rank2 = preferences.indexOf(person2);
+        return rank1 < rank2;
     }
 
     /**
      * A school closes positions adding person to a list.
-     * @param person
+     * @param person the ID of the person to add in the choices.
      */
-    public void addMatch(Entity person) {
-        currentMatched.add(person.ID);
+    public void addMatch(Integer person) {
+        currentMatched.add(person);
     }
 }

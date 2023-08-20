@@ -31,10 +31,13 @@ public class Person extends Entity {
     }
     /**
      * Persons can tell which one is their best option left. It corresponds to the first element in its preference list.
-     * @return the highest ranked preference of this person
+     * @return the ID of the highest ranked preference of this person.
      * @throws GSException if there are no more options for this person.
      */
     public Integer getBest() throws IndexOutOfBoundsException {
-        return preferences.get(0);
+        return (Integer) preferences.get(0);
+    }
+    public void rejected(Integer school) {
+        preferences.remove(school);
     }
 }
